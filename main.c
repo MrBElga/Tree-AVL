@@ -11,12 +11,25 @@ int main()
     
     // Insere elementos na árvore AVL
     insereAVL(&raiz, 10, &rotacao);
+    rotacao=0;
+      printf("Arvore AVL:\n");
+      exibe(raiz, 0);
     insereAVL(&raiz, 5, &rotacao);
+       rotacao=0;
+         printf("Arvore AVL:\n");
+         exibe(raiz, 0);
     insereAVL(&raiz, 15, &rotacao);
-    insereAVL(&raiz, 3, &rotacao);
-    insereAVL(&raiz, 7, &rotacao);
+       rotacao=0;
+         printf("Arvore AVL:\n");
+         exibe(raiz, 0);
     insereAVL(&raiz, 12, &rotacao);
-    insereAVL(&raiz, 18, &rotacao);
+       rotacao=0;
+         printf("Arvore AVL:\n");
+         exibe(raiz, 0);
+    insereAVL(&raiz, 13, &rotacao);
+       rotacao=0;
+         printf("Arvore AVL:\n");
+         exibe(raiz, 0);
 
 
     // Exibe a árvore AVL

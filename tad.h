@@ -318,12 +318,12 @@ int max(int a, int b) {
 
 int getAlt(Tree *folha)
 {
- ;
+ 
 	if(folha == NULL)
 		return -1;
 	else
     {
-       
+
        
       return 1 +  max( getAlt(folha->esq), getAlt(folha->dir));
     }
@@ -332,11 +332,10 @@ int getAlt(Tree *folha)
 
 int fatorBalanceamento(Tree *folha) 
 {
-	if(!TreeIsEmpty(folha->esq) && !TreeIsEmpty(folha->dir))  
-		return getAlt(folha->esq) - getAlt(folha->dir);
-	else
-		return -1;
-}
+
+		return getAlt(folha->dir) - getAlt(folha->esq);
+
+}	
 
 void insereAVL(Tree** raiz, int info, int* rot)
 {
@@ -344,7 +343,6 @@ void insereAVL(Tree** raiz, int info, int* rot)
 	if(TreeIsEmpty(*raiz))
 	{
 		*raiz = criaNo(info);
-		*rot = 1;
 	}
 	else
     {
@@ -355,13 +353,13 @@ void insereAVL(Tree** raiz, int info, int* rot)
     }
 	if(!*rot)
 	{
-		fb = fatorBalanceamento((*raiz)->dir);
+		fb = fatorBalanceamento((*raiz));
 		if ( fb == 2 || fb == -2)
 		{
 			*rot = 1;
 			if(fb == 2)
 			{
-				fb_filho = fatorBalanceamento((*raiz)->dir) - fatorBalanceamento((*raiz)->esq);
+				fb_filho = fatorBalanceamento((*raiz)->dir);
 				if(fb_filho == 1) //(2) (1)
 					rotacaoLL(&(*raiz));
 				else	//(2)(-1)
@@ -372,7 +370,7 @@ void insereAVL(Tree** raiz, int info, int* rot)
 			}
 			else	//-2
 			{
-				fb_filho = fatorBalanceamento((*raiz)->dir) - fatorBalanceamento((*raiz)->esq);
+				fb_filho = fatorBalanceamento((*raiz)->esq);
 				if(fb_filho == -1) //(-2)(-1)
 					rotacaoRR(&(*raiz));
 				else
